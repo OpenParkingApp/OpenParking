@@ -1,7 +1,7 @@
 import XCTest
 
-import ParkourDatasourceTests
+import OpenParkingBaseTests
 
 var tests = [XCTestCaseEntry]()
-tests += ParkourDatasourceTests.allTests()
+tests += OpenParkingBaseTests.allTests()
 XCTMain(tests)

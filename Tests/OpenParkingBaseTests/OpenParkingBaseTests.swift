@@ -1,12 +1,12 @@
 import XCTest
-@testable import ParkourDatasource
+@testable import OpenParkingBase
 
-final class ParkourDatasourceTests: XCTestCase {
+final class OpenParkingBaseTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(ParkourDatasource().text, "Hello, World!")
+//        XCTAssertEqual(OpenParkingBase().text, "Hello, World!")
     }
 
     static var allTests = [

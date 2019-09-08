@@ -10,11 +10,13 @@ let package = Package(
             targets: ["OpenParkingBase"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/Flight-School/AnyCodable", from: "0.2.3"),
+        .package(url: "https://github.com/alexaubry/HTMLString", from: "5.0.0"),
     ],
     targets: [
         .target(
             name: "OpenParkingBase",
-            dependencies: []),
+            dependencies: ["AnyCodable", "HTMLString"]),
         .testTarget(
             name: "OpenParkingBaseTests",
             dependencies: ["OpenParkingBase"]),

@@ -2,9 +2,9 @@ import Foundation
 
 public struct DataPoint {
     public let dateDownloaded: Date
-    public let lots: [Lot]
+    public let lots: [LotResult]
 
-    public init(dateDownloaded: Date = Date(), lots: [Lot]) {
+    public init(dateDownloaded: Date = Date(), lots: [LotResult]) {
         self.dateDownloaded = dateDownloaded
         self.lots = lots
     }

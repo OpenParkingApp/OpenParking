@@ -1,8 +1,13 @@
 public enum OpenParkingError: Error {
     case decoding(description: String, underlyingError: Error?)
-    case missingMetadata(lot: String)
-    case missingMetadataField(String, lot: String)
     case network(Error)
-    case server(status: Int)
+    case server(status: Int, response: String)
     case other(Error?)
 }
+
+public enum LotError: Error {
+    case missingMetadata(lot: String)
+    case missingMetadataField(String, lot: String)
+}
+
+public typealias LotResult = Result<Lot, LotError>

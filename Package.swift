@@ -8,6 +8,9 @@ let package = Package(
         .library(
             name: "OpenParkingBase",
             targets: ["OpenParkingBase"]),
+        .library(
+            name: "OpenParkingTests",
+            targets: ["OpenParkingTests"]),
     ],
     dependencies: [
         .package(url: "https://github.com/Flight-School/AnyCodable", from: "0.2.3"),
@@ -17,6 +20,9 @@ let package = Package(
         .target(
             name: "OpenParkingBase",
             dependencies: ["AnyCodable", "HTMLString"]),
+        .target(
+            name: "OpenParkingTests",
+            dependencies: ["OpenParkingBase"]),
         .testTarget(
             name: "OpenParkingBaseTests",
             dependencies: ["OpenParkingBase"]),

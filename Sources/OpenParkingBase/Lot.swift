@@ -7,8 +7,8 @@ public struct Lot {
     public let city: String
     public let region: String?
     public let address: String?
-    public let free: FreeCount
-    public let total: Int?
+    public let available: Available
+    public let capacity: Int?
     public let state: State
     public let kind: Kind?
     public let detailURL: URL?
@@ -20,8 +20,8 @@ public struct Lot {
                 city: String,
                 region: String?,
                 address: String?,
-                free: FreeCount,
-                total: Int?,
+                available: Available,
+                capacity: Int?,
                 state: Lot.State,
                 kind: Lot.Kind?,
                 detailURL: URL?,
@@ -32,8 +32,8 @@ public struct Lot {
         self.city = city
         self.region = region
         self.address = address
-        self.free = free
-        self.total = total
+        self.available = available
+        self.capacity = capacity
         self.state = state
         self.kind = kind
         self.detailURL = detailURL
@@ -42,7 +42,7 @@ public struct Lot {
 }
 
 extension Lot {
-    public enum FreeCount {
+    public enum Available {
         case discrete(Int)
         case range(ClosedRange<Int>)
     }

@@ -55,5 +55,9 @@ public func assert(lot: LotResult,
                 }
             }
         }
+
+        if let warning = lot.warning {
+            print("⚠️ \(lot.name) \(lot.city): \(warning)")
+        }
     }
 }

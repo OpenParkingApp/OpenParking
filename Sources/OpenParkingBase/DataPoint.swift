@@ -1,11 +1,13 @@
 import Foundation
 
+/// A single point of data that was created at a specific point in time.
 public struct DataPoint {
-    public let dateDownloaded: Date
+    /// Date when this data point was created.
+    public let timestamp: Date
     public let lots: [LotResult]
 
-    public init(dateDownloaded: Date = Date(), lots: [LotResult]) {
-        self.dateDownloaded = dateDownloaded
+    public init(timestamp: Date = Date(), lots: [LotResult]) {
+        self.timestamp = timestamp
         self.lots = lots
     }
 }

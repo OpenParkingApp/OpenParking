@@ -10,7 +10,7 @@ public struct Lot {
     public let available: Available
     public let capacity: Int?
     public let state: State
-    public let kind: Kind?
+    public let type: LotType?
     public let detailURL: URL?
     public let additionalInformation: [String: Any]?
 
@@ -23,7 +23,7 @@ public struct Lot {
                 available: Available,
                 capacity: Int?,
                 state: Lot.State,
-                kind: Lot.Kind?,
+                type: Lot.LotType?,
                 detailURL: URL?,
                 additionalInformation: [String : Any]? = nil) {
         self.dataAge = dataAge
@@ -35,7 +35,7 @@ public struct Lot {
         self.available = available
         self.capacity = capacity
         self.state = state
-        self.kind = kind
+        self.type = type
         self.detailURL = detailURL
         self.additionalInformation = additionalInformation
     }
@@ -51,7 +51,7 @@ extension Lot {
         case open, closed, noData
     }
 
-    public enum Kind: String {
+    public enum LotType: String {
         case lot, structure, underground, street
     }
 }

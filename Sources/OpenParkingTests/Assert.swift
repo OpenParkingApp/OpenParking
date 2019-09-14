@@ -28,6 +28,8 @@ public func assert(lot: LotResult,
             XCTFail("Missing metadata for \(lot)", file: file, line: line)
         case .missingMetadataField(let field, lot: let lot):
             XCTFail("\(lot) metadata missing expected field \(field)", file: file, line: line)
+        case .other(reason: let reason):
+            XCTFail("\(lot) failed because of: \(reason)", file: file, line: line)
         }
     case .success(let lot):
         if let dataAge = lot.dataAge {

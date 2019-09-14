@@ -8,6 +8,7 @@ public enum OpenParkingError: Error {
 public enum LotError: Error {
     case missingMetadata(lot: String)
     case missingMetadataField(String, lot: String)
+    case other(reason: String)
 }
 
 public typealias LotResult = Result<Lot, LotError>

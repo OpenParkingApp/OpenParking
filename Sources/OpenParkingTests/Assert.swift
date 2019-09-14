@@ -1,20 +1,26 @@
 import XCTest
 import OpenParkingBase
 
-public func assert(datasource: Datasource, file: StaticString = #file, line: UInt = #line) {
+public func assert(datasource: Datasource,
+                   ignoreExceededCapacity: Bool = false,
+                   file: StaticString = #file,
+                   line: UInt = #line) {
     do {
         let data = try datasource.data()
         XCTAssert(!data.lots.isEmpty, file: file, line: line)
 
         for lot in data.lots {
-            assert(lot: lot, file: file, line: line)
+            assert(lot: lot, ignoreExceededCapacity: ignoreExceededCapacity, file: file, line: line)
         }
     } catch {
         XCTFail("Fetching data from \(datasource.name) failed with: \(error)", file: file, line: line)
     }
 }
 
-public func assert(lot: LotResult, file: StaticString = #file, line: UInt = #line) {
+public func assert(lot: LotResult,
+                   ignoreExceededCapacity: Bool = false,
+                   file: StaticString = #file,
+                   line: UInt = #line) {
     switch lot {
     case .failure(let error):
         switch error {
@@ -35,16 +41,18 @@ public func assert(lot: LotResult, file: StaticString = #file, line: UInt = #lin
         if let address = lot.address {
             XCTAssert(!address.isEmpty, "\(lot) address should not be empty if set", file: file, line: line)
         }
-        switch lot.available {
-        case .discrete(let available):
-            XCTAssert(available >= 0, "\(lot) should have a positive amount of available spots", file: file, line: line)
-            if let capacity = lot.capacity {
-                XCTAssert(available <= capacity, "\(lot) available spots should not exceed the capacity", file: file, line: line)
-            }
-        case .range(let range):
-            XCTAssert(range.lowerBound >= 0, "\(lot) availability range should start at a positive value", file: file, line: line)
-            if let capacity = lot.capacity {
-                XCTAssert(range.upperBound <= capacity, "\(lot) availability range upper bound should not exceed the capacity", file: file, line: line)
+        if !ignoreExceededCapacity {
+            switch lot.available {
+            case .discrete(let available):
+                XCTAssert(available >= 0, "\(lot) should have a positive amount of available spots", file: file, line: line)
+                if let capacity = lot.capacity {
+                    XCTAssert(available <= capacity, "\(lot) available spots should not exceed the capacity", file: file, line: line)
+                }
+            case .range(let range):
+                XCTAssert(range.lowerBound >= 0, "\(lot) availability range should start at a positive value", file: file, line: line)
+                if let capacity = lot.capacity {
+                    XCTAssert(range.upperBound <= capacity, "\(lot) availability range upper bound should not exceed the capacity", file: file, line: line)
+                }
             }
         }
     }

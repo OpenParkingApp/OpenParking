@@ -1,6 +1,10 @@
 import Foundation
 import Dispatch
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 let PROJECT_URL = "https://github.com/OpenParkingApp"
 
 // MARK: - Generic

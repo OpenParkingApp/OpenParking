@@ -12,6 +12,7 @@ public struct Lot {
     public let state: State
     public let type: LotType?
     public let detailURL: URL?
+    public let paymentURL: URL?
     /// An optional warning not intended to be stored with the lot, but for highlighting possible inconsistencies in static data.
     public let warning: String?
     public let additionalInformation: [String: Any]?
@@ -27,6 +28,7 @@ public struct Lot {
                 state: Lot.State,
                 type: Lot.LotType?,
                 detailURL: URL?,
+                paymentURL: URL?,
                 warning: String? = nil,
                 additionalInformation: [String : Any]? = nil) {
         self.dataAge = dataAge
@@ -40,6 +42,7 @@ public struct Lot {
         self.state = state
         self.type = type
         self.detailURL = detailURL
+        self.paymentURL = paymentURL
         self.warning = warning
         self.additionalInformation = additionalInformation
     }

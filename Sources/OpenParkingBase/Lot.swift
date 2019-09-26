@@ -68,10 +68,20 @@ extension Lot {
     public struct PaymentInfo {
         public let url: URL?
         public let pricing: String?
+
+        public init(url: URL? = nil, pricing: String? = nil) {
+            self.url = url
+            self.pricing = pricing
+        }
     }
 
     public struct OpeningHours {
         public let url: URL?
         public let times: String?
+
+        public init(url: URL? = nil, times: String? = nil) {
+            self.url = url
+            self.times = times
+        }
     }
 }

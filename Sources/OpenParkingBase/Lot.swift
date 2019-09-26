@@ -18,19 +18,19 @@ public struct Lot {
     public let warning: String?
     public let additionalInformation: [String: Any]?
 
-    public init(dataAge: Date?,
+    public init(dataAge: Date? = nil,
                 name: String,
                 coordinates: Coordinates,
                 city: String,
-                region: String?,
-                address: String?,
+                region: String? = nil,
+                address: String? = nil,
                 available: Available,
-                capacity: Int?,
+                capacity: Int? = nil,
                 state: Lot.State,
-                type: Lot.LotType?,
-                detailURL: URL?,
-                paymentInfo: PaymentInfo?,
-                openingHours: OpeningHours?,
+                type: Lot.LotType? = nil,
+                detailURL: URL? = nil,
+                paymentInfo: PaymentInfo? = nil,
+                openingHours: OpeningHours? = nil,
                 warning: String? = nil,
                 additionalInformation: [String : Any]? = nil) {
         self.dataAge = dataAge

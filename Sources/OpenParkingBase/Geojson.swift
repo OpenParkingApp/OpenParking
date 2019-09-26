@@ -1,3 +1,4 @@
+import Foundation
 import AnyCodable
 
 public struct GeoJson: Decodable {
@@ -23,6 +24,15 @@ public struct GeoJson: Decodable {
         public subscript<T>(_ key: String) -> T? {
             get {
                 properties[key]?.value as? T
+            }
+        }
+
+        public subscript(_ key: String) -> URL? {
+            get {
+                guard let str = properties[key]?.value as? String else {
+                    return nil
+                }
+                return URL(string: str)
             }
         }
     }

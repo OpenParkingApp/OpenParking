@@ -13,7 +13,7 @@ public struct Lot {
     public let type: LotType?
     public let detailURL: URL?
     public let imageURL: URL?
-    public let paymentInfo: PaymentInfo?
+    public let pricing: Pricing?
     public let openingHours: OpeningHours?
     public let additionalInformation: [String: Any]?
 
@@ -32,7 +32,7 @@ public struct Lot {
                 type: Lot.LotType? = nil,
                 detailURL: URL? = nil,
                 imageURL: URL? = nil,
-                paymentInfo: PaymentInfo? = nil,
+                pricing: Pricing? = nil,
                 openingHours: OpeningHours? = nil,
                 additionalInformation: [String : Any]? = nil,
                 warning: String? = nil) {
@@ -48,7 +48,7 @@ public struct Lot {
         self.type = type
         self.detailURL = detailURL
         self.imageURL = imageURL
-        self.paymentInfo = paymentInfo
+        self.pricing = pricing
         self.openingHours = openingHours
         self.additionalInformation = additionalInformation
         self.warning = warning
@@ -69,7 +69,7 @@ extension Lot {
         case lot, structure, underground, street
     }
 
-    public struct PaymentInfo {
+    public struct Pricing {
         public let url: URL?
         public let pricing: String?
 

@@ -15,9 +15,10 @@ public struct Lot {
     public let imageURL: URL?
     public let paymentInfo: PaymentInfo?
     public let openingHours: OpeningHours?
+    public let additionalInformation: [String: Any]?
+
     /// An optional warning not intended to be stored with the lot, but for highlighting possible inconsistencies in static data.
     public let warning: String?
-    public let additionalInformation: [String: Any]?
 
     public init(dataAge: Date? = nil,
                 name: String,
@@ -33,8 +34,8 @@ public struct Lot {
                 imageURL: URL? = nil,
                 paymentInfo: PaymentInfo? = nil,
                 openingHours: OpeningHours? = nil,
-                warning: String? = nil,
-                additionalInformation: [String : Any]? = nil) {
+                additionalInformation: [String : Any]? = nil,
+                warning: String? = nil) {
         self.dataAge = dataAge
         self.name = name
         self.coordinates = coordinates
@@ -49,8 +50,8 @@ public struct Lot {
         self.imageURL = imageURL
         self.paymentInfo = paymentInfo
         self.openingHours = openingHours
-        self.warning = warning
         self.additionalInformation = additionalInformation
+        self.warning = warning
     }
 }
 

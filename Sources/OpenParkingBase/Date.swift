@@ -10,12 +10,15 @@ public enum DateFormat: String {
 }
 
 public extension String {
-    func date(withFormat format: DateFormat) -> Date? {
-        date(withFormat: format.rawValue)
+    func date(withFormat format: DateFormat,
+              timezone: TimeZone = TimeZone(identifier: "Europe/Berlin")!) -> Date? {
+        date(withFormat: format.rawValue, timezone: timezone)
     }
 
-    func date(withFormat format: String) -> Date? {
+    func date(withFormat format: String,
+              timezone: TimeZone = TimeZone(identifier: "Europe/Berlin")!) -> Date? {
         dateFormatter.dateFormat = format
+        dateFormatter.timeZone = timezone
         return dateFormatter.date(from: self)
     }
 }

@@ -3,6 +3,7 @@ import OpenParkingBase
 
 public func assert(datasource: Datasource,
                    ignoreExceededCapacity: Bool = false,
+                   ignoreDataAge: Bool = false,
                    file: StaticString = #file,
                    line: UInt = #line) {
     do {
@@ -10,7 +11,11 @@ public func assert(datasource: Datasource,
         XCTAssert(!data.lots.isEmpty, file: file, line: line)
 
         for lot in data.lots {
-            assert(lot: lot, ignoreExceededCapacity: ignoreExceededCapacity, file: file, line: line)
+            assert(lot: lot,
+                   ignoreExceededCapacity: ignoreExceededCapacity,
+                   ignoreDataAge: ignoreDataAge,
+                   file: file,
+                   line: line)
         }
     } catch {
         XCTFail("Fetching data from \(datasource.name) failed with: \(error)", file: file, line: line)
@@ -19,6 +24,7 @@ public func assert(datasource: Datasource,
 
 public func assert(lot: LotResult,
                    ignoreExceededCapacity: Bool = false,
+                   ignoreDataAge: Bool = false,
                    file: StaticString = #file,
                    line: UInt = #line) {
     switch lot {
@@ -32,7 +38,7 @@ public func assert(lot: LotResult,
             XCTFail("\(lot) failed because of: \(reason)", file: file, line: line)
         }
     case .success(let lot):
-        if let dataAge = lot.dataAge {
+        if let dataAge = lot.dataAge, !ignoreDataAge {
             XCTAssert(dataAge < Date(), "\(lot) data age should be in the past.", file: file, line: line)
         }
         XCTAssert(!lot.name.isEmpty, "Lot name should not be empty", file: file, line: line)

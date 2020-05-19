@@ -94,7 +94,7 @@ private func send(request: URLRequest,
 private extension URLRequest {
     static func openParkingRequest(toURL url: URL) -> URLRequest {
         var request = URLRequest(url: url)
-        request.addValue("User-Agent", forHTTPHeaderField: "OpenParking-\(PROJECT_URL)")
+        request.addValue("OpenParking-\(PROJECT_URL)", forHTTPHeaderField: "User-Agent")
         return request
     }
 

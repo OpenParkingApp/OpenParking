@@ -12,10 +12,10 @@ public func validate(datasource: Datasource,
 
         for lot in data.lots {
             validate(lot: lot,
-                   ignoreExceededCapacity: ignoreExceededCapacity,
-                   ignoreDataAge: ignoreDataAge,
-                   file: file,
-                   line: line)
+                     ignoreExceededCapacity: ignoreExceededCapacity,
+                     ignoreDataAge: ignoreDataAge,
+                     file: file,
+                     line: line)
         }
     } catch {
         XCTFail("Fetching data from \(datasource.name) failed with: \(error)", file: file, line: line)

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datasource - get(url:headers:session:)</title>
+    <title>Datasource - warning(_:lotName:source:)</title>
     <link rel="stylesheet" type="text/css" href="/Datasource/all.css" media="all" />
 </head>
 <body>
@@ -34,12 +34,12 @@
         <article>
             <h1>
 <small>Function</small>
-<span class="name">get(url:​headers:​session:​)</span>
+<span class="name">warning(_:​lot​Name:​source:​)</span>
 </h1>
 
-<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">get</span>(<span class="variable">url</span>: <span class="type">URL</span>, <span class="variable">headers</span>: [<span class="type">String</span>: <span class="type">String</span>]? = <span class="keyword">nil</span>, <span class="variable">session</span>: <span class="type">URLSession</span> = .<span class="variable">shared</span>) <span class="keyword">throws</span> -&gt; (<span class="type">Data</span>, <span class="type">HTTPURLResponse</span>)</code></pre></body></html>
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">warning</span>(<span class="keyword">_</span> <span class="variable">warning</span>: <span class="type">String</span>, <span class="variable">lotName</span>: <span class="type">String</span>? = <span class="keyword">nil</span>, <span class="variable">source</span>: <span class="type">StaticString</span> = <span class="keyword">#file</span>)</code></pre></body></html>
 <div class="summary" role="doc-abstract">
-    <p>Send a synchronous <code>GET</code> request to a specified URL with optional headers. Encountered errors will be thrown directly.</p>
+    <p>Send a warning upstream that there is a potential incosistency in the data that should be investigated but was not severe enough to stop data collection for this lot.</p>
 
 </div>
         </article>

@@ -62,7 +62,7 @@
     <h3>
         <code>init(data​Age:​name:​coordinates:​city:​region:​address:​available:​capacity:​state:​type:​detail​URL:​image​URL:​pricing:​opening​Hours:​additional​Information:​)</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">dataAge</span>: <span class="type">Date</span>? = <span class="keyword">nil</span>, <span class="variable">name</span>: <span class="type">String</span>, <span class="variable">coordinates</span>: <a href="/Datasource/Coordinates"><span class="type">Coordinates</span></a>, <span class="variable">city</span>: <span class="type">String</span>, <span class="variable">region</span>: <span class="type">String</span>? = <span class="keyword">nil</span>, <span class="variable">address</span>: <span class="type">String</span>? = <span class="keyword">nil</span>, <span class="variable">available</span>: <span class="type">Available</span>, <span class="variable">capacity</span>: <span class="type">Int</span>? = <span class="keyword">nil</span>, <span class="variable">state</span>: <a href="/Datasource/Lot"><span class="type">Lot</span></a>.<span class="type">State</span>, <span class="variable">type</span>: <a href="/Datasource/Lot"><span class="type">Lot</span></a>.<span class="type">LotType</span>? = <span class="keyword">nil</span>, <span class="variable">detailURL</span>: <span class="type">URL</span>? = <span class="keyword">nil</span>, <span class="variable">imageURL</span>: <span class="type">URL</span>? = <span class="keyword">nil</span>, <span class="variable">pricing</span>: <span class="type">Pricing</span>? = <span class="keyword">nil</span>, <span class="variable">openingHours</span>: <span class="type">OpeningHours</span>? = <span class="keyword">nil</span>, <span class="variable">additionalInformation</span>: [<span class="type">String</span> : <span class="keyword">Any</span>]? = <span class="keyword">nil</span>)</code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">dataAge</span>: <span class="type">Date</span>? = <span class="keyword">nil</span>, <span class="variable">name</span>: <span class="type">String</span>, <span class="variable">coordinates</span>: <a href="/Datasource/Coordinates"><span class="type">Coordinates</span></a>?, <span class="variable">city</span>: <span class="type">String</span>, <span class="variable">region</span>: <span class="type">String</span>? = <span class="keyword">nil</span>, <span class="variable">address</span>: <span class="type">String</span>? = <span class="keyword">nil</span>, <span class="variable">available</span>: <span class="type">Available</span>, <span class="variable">capacity</span>: <span class="type">Int</span>? = <span class="keyword">nil</span>, <span class="variable">state</span>: <a href="/Datasource/Lot"><span class="type">Lot</span></a>.<span class="type">State</span>, <span class="variable">type</span>: <a href="/Datasource/Lot"><span class="type">Lot</span></a>.<span class="type">LotType</span>? = <span class="keyword">nil</span>, <span class="variable">detailURL</span>: <span class="type">URL</span>? = <span class="keyword">nil</span>, <span class="variable">imageURL</span>: <span class="type">URL</span>? = <span class="keyword">nil</span>, <span class="variable">pricing</span>: <span class="type">Pricing</span>? = <span class="keyword">nil</span>, <span class="variable">openingHours</span>: <span class="type">OpeningHours</span>? = <span class="keyword">nil</span>, <span class="variable">additionalInformation</span>: [<span class="type">String</span> : <span class="keyword">Any</span>]? = <span class="keyword">nil</span>)</code></pre></body></html>
 </div>
     </section>
     <section id="properties">
@@ -84,7 +84,7 @@
     <h3>
         <code>coordinates</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">coordinates</span>: <a href="/Datasource/Coordinates"><span class="type">Coordinates</span></a></code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">coordinates</span>: <a href="/Datasource/Coordinates"><span class="type">Coordinates</span></a>?</code></pre></body></html>
 </div>
 <div role="article" class="variable" id="lot.city">
     <h3>
@@ -167,7 +167,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2020-05-20T23:06:20+0200">20. May 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.3</span>.
+    Generated on <time datetime="2020-05-21T01:17:01+0200">21. May 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.3</span>.
 </p>
     </footer>
 </body>

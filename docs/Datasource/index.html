@@ -111,7 +111,12 @@
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">func</span> <span class="function">data</span>() <span class="keyword">throws</span> -&gt; <a href="/Datasource/DataPoint"><span class="type">DataPoint</span></a></code></pre></body></html>
 <div class="summary" role="doc-abstract">
-    <p>The function responsible for fetching all necessary data and generating a current data point.</p>
+    <p>Entrypoint for gathering current data.</p>
+
+</div>
+<div class="discussion">
+    <p>This function can throw errors to indicate that data collection has failed entirely and can not be continued. Please use the <code>DataPoint</code>'s <code>LotResult</code>
+to indicate for failures for specific lots or <code>warn(_:lotName:)</code> for indicating issues that do not indicate that data collection has failed.</p>
 
 </div>
 </div>
@@ -121,7 +126,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2020-05-20T23:06:20+0200">20. May 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.3</span>.
+    Generated on <time datetime="2020-05-21T01:17:01+0200">21. May 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.3</span>.
 </p>
     </footer>
 </body>

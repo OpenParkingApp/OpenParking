@@ -41,7 +41,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A set of WGS84 coordinates used to specify a location.</p>
+
 </dd>
 <dt class="structure">
     <a href="/Datasource/DataPoint" title="structure - DataPoint">
@@ -49,7 +50,7 @@
     </a>
 </dt>
 <dd>
-    <p>A single point of data that was created at a specific point in time.</p>
+    <p>A collection of lot data point that were collected together.</p>
 
 </dd>
 <dt class="structure">
@@ -100,6 +101,14 @@
 <dd>
     
 </dd>
+<dt class="structure">
+    <a href="/Datasource/Warning" title="structure - Warning">
+        Warning
+    </a>
+</dt>
+<dd>
+    
+</dd>
         </dl>
     </section>
     <section id="enumerations">
@@ -111,7 +120,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>Pre-defined date format values for use with <code>String.date(withFormat:)</code>.</p>
+
 </dd>
 <dt class="enumeration">
     <a href="/Datasource/OpenParkingError" title="enumeration - OpenParkingError">
@@ -119,7 +129,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A general error type indicating failure during the loading or decoding of data.</p>
+
 </dd>
 <dt class="enumeration">
     <a href="/Datasource/LotError" title="enumeration - LotError">
@@ -127,7 +138,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>An error indicating that aggregating of data for a specific lot has failed.</p>
+
 </dd>
 <dt class="enumeration">
     <a href="/Datasource/Lot_Available" title="enumeration - Lot.Available">
@@ -190,7 +202,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>Send an asynchronous <code>GET</code> request to a specified URL with optional headers.</p>
+
 </dd>
 <dt class="function">
     <a href="/Datasource/get(url:headers:session:)" title="function - get(url:headers:session:)">
@@ -198,7 +211,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>Send a synchronous <code>GET</code> request to a specified URL with optional headers. Encountered errors will be thrown directly.</p>
+
 </dd>
 <dt class="function">
     <a href="/Datasource/post(url:headers:body:session:completion:)" title="function - post(url:headers:body:session:completion:)">
@@ -206,7 +220,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>Send an asynchronous <code>POST</code> request to a specified URL with optional headers and body.</p>
+
 </dd>
 <dt class="function">
     <a href="/Datasource/post(url:headers:body:session:)" title="function - post(url:headers:body:session:)">
@@ -214,15 +229,17 @@
     </a>
 </dt>
 <dd>
-    
+    <p>Send a synchronous <code>POST</code> request to a specified URL with optional headers and body. Encountered errors will be thrown directly.</p>
+
 </dd>
 <dt class="function">
-    <a href="/Datasource/warn(_:lotName:source:)" title="function - warn(_:lotName:source:)">
-        warn(_:​lot​Name:​source:​)
+    <a href="/Datasource/warning(_:lotName:source:)" title="function - warning(_:lotName:source:)">
+        warning(_:​lot​Name:​source:​)
     </a>
 </dt>
 <dd>
-    
+    <p>Send a warning upstream that there is a potential incosistency in the data that should be investigated but was not severe enough to stop data collection for this lot.</p>
+
 </dd>
         </dl>
     </section>
@@ -231,7 +248,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2020-05-20T23:06:20+0200">20. May 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.3</span>.
+    Generated on <time datetime="2020-05-21T01:17:01+0200">21. May 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.3</span>.
 </p>
     </footer>
 </body>

@@ -121,7 +121,7 @@ The main idea is to fetch current data and process that to return a `DataPoint` 
 
 One more thing to note here are the three available options of indicating issues with the data.
 
-- If there's an inconsistency with the data that should be investigated, but is not a problem (e.g. there a more parking spots available than there are in total), call the `warn(_:lotName:)` function. These warnings will be aggregated and (hopefully) looked at later by whoever's running the data import.
+- If there's an inconsistency with the data that should be investigated, but is not a problem, call the `warn(_:lotName:)` function. These warnings will be aggregated and (hopefully) looked at later by whoever's running the data import.
 - A `DataPoint` is not a direct collection of `Lot`s, but contains values of type `Result<Lot, LotError>`. Use the `LotError` to highlight if data for a specific lot is broken and can not be aggregated, possibly due to missing static metadata or something else.
 - If all else fails and data collection has failed entirely, make use of the throwing nature of `data()` and throw a fitting error.
 

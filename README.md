@@ -4,7 +4,7 @@
 
 This package contains necessary types and useful functions for creating data sources for use with the OpenParking project, a service focussed on collecting data on available public parking spots and providing them and derived information as open-data wherever possible.
 
-Check out the [documentation](https://openparkingapp.github.io/openparkingbase) for API specifics.
+Check out the [documentation](https://openparkingapp.github.io/OpenParkingBase/) for API specifics.
 
 ## Creating a New Data Source
 
@@ -127,7 +127,7 @@ One more thing to note here are the three available options of indicating issues
 - A `DataPoint` is not a direct collection of `Lot`s, but contains values of type `Result<Lot, LotError>`. Use the `LotError` to highlight if data for a specific lot is broken, possibly due to missing static metadata or something else.
 - If all else fails and data collection has failed entirely, make use of the throwing nature of `data()` and throw a fitting error.
 
-All of this and more should be listed in the project's [documentation](https://openparkingapp.github.io/openparkingbase) as well.
+All of this and more should be listed in the project's [documentation](https://openparkingapp.github.io/OpenParkingBase/) as well.
 
 #### Handling Static Data
 

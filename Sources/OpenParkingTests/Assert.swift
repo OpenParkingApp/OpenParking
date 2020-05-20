@@ -50,9 +50,9 @@ public func assert(lot: LotResult,
             XCTAssert(!address.isEmpty, "\(lot) address should not be empty if set", file: file, line: line)
         }
         if let pricing = lot.pricing {
-            switch (pricing.url, pricing.pricing) {
+            switch (pricing.url, pricing.description) {
             case (nil, nil):
-                XCTFail("Either Pricing.url or Pricing.pricing should be set if pricing information is supplied.")
+                XCTFail("Either Pricing.url or Pricing.description should be set if pricing information is supplied.")
             default:
                 break
             }

@@ -66,11 +66,21 @@ extension Lot {
 
     public struct Pricing {
         public let url: URL?
-        public let pricing: String?
+        public let description: String?
 
-        public init(url: URL? = nil, pricing: String? = nil) {
+        public init(url: URL) {
             self.url = url
-            self.pricing = pricing
+            self.description = nil
+        }
+
+        public init(description: String) {
+            self.url = nil
+            self.description = description
+        }
+
+        public init(url: URL, pricing: String) {
+            self.url = url
+            self.description = pricing
         }
     }
 
@@ -78,7 +88,17 @@ extension Lot {
         public let url: URL?
         public let times: String?
 
-        public init(url: URL? = nil, times: String? = nil) {
+        public init(url: URL) {
+            self.url = url
+            self.times = nil
+        }
+
+        public init(times: String) {
+            self.url = nil
+            self.times = times
+        }
+
+        public init(url: URL, times: String) {
             self.url = url
             self.times = times
         }

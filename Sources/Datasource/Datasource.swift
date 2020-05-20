@@ -17,7 +17,10 @@ public protocol Datasource {
     /// A license under which this source is being published.
     var license: String? { get }
 
-    /// The function responsible for fetching all necessary data and generating a current data point.
+    /// Entrypoint for gathering current data.
+    ///
+    /// This function can throw errors to indicate that data collection has failed entirely and can not be continued. Please use the `DataPoint`'s `LotResult`
+    /// to indicate for failures for specific lots or `warn(_:lotName:)` for indicating issues that do not indicate that data collection has failed.
     func data() throws -> DataPoint
 }
 

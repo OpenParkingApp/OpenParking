@@ -1,6 +1,6 @@
 import Foundation
 
-/// A single point of data that was created at a specific point in time.
+/// A collection of lot data point that were collected together.
 public struct DataPoint {
     /// Date when this data point was created.
     public let timestamp: Date

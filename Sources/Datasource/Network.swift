@@ -7,8 +7,7 @@ import FoundationNetworking
 
 let PROJECT_URL = "https://github.com/OpenParkingApp"
 
-// MARK: - Generic
-
+/// Send an asynchronous `GET` request to a specified URL with optional headers.
 public func get(url: URL,
                 headers: [String: String]? = nil,
                 session: URLSession = .shared,
@@ -18,6 +17,7 @@ public func get(url: URL,
     send(request: request, session: session, completion: completion)
 }
 
+/// Send a synchronous `GET` request to a specified URL with optional headers. Encountered errors will be thrown directly.
 public func get(url: URL,
                 headers: [String: String]? = nil,
                 session: URLSession = .shared) throws -> (Data, HTTPURLResponse) {
@@ -39,6 +39,7 @@ public func get(url: URL,
     }
 }
 
+/// Send an asynchronous `POST` request to a specified URL with optional headers and body.
 public func post(url: URL,
                  headers: [String: String]? = nil,
                  body: Data?,
@@ -51,6 +52,7 @@ public func post(url: URL,
     send(request: request, session: session, completion: completion)
 }
 
+/// Send a synchronous `POST` request to a specified URL with optional headers and body. Encountered errors will be thrown directly.
 public func post(url: URL,
                  headers: [String: String]? = nil,
                  body: Data?,

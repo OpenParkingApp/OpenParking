@@ -1,17 +1,17 @@
 import XCTest
-import OpenParkingBase
+import Datasource
 
-public func assert(datasource: Datasource,
-                   ignoreExceededCapacity: Bool = false,
-                   ignoreDataAge: Bool = false,
-                   file: StaticString = #file,
-                   line: UInt = #line) {
+public func validate(datasource: Datasource,
+                     ignoreExceededCapacity: Bool = false,
+                     ignoreDataAge: Bool = false,
+                     file: StaticString = #file,
+                     line: UInt = #line) {
     do {
         let data = try datasource.data()
         XCTAssert(!data.lots.isEmpty, file: file, line: line)
 
         for lot in data.lots {
-            assert(lot: lot,
+            validate(lot: lot,
                    ignoreExceededCapacity: ignoreExceededCapacity,
                    ignoreDataAge: ignoreDataAge,
                    file: file,
@@ -22,11 +22,11 @@ public func assert(datasource: Datasource,
     }
 }
 
-public func assert(lot: LotResult,
-                   ignoreExceededCapacity: Bool = false,
-                   ignoreDataAge: Bool = false,
-                   file: StaticString = #file,
-                   line: UInt = #line) {
+public func validate(lot: LotResult,
+                     ignoreExceededCapacity: Bool = false,
+                     ignoreDataAge: Bool = false,
+                     file: StaticString = #file,
+                     line: UInt = #line) {
     switch lot {
     case .failure(let error):
         switch error {

@@ -8,7 +8,7 @@ public protocol Datasource {
     var slug: String { get }
 
     /// URL pointing to a description of the data, not necessarily where the live data is accessed from.
-    var infoUrl: URL { get }
+    var infoURL: URL { get }
 
     /// Attribution data for the contributor of the source.
     var contributor: String? { get }

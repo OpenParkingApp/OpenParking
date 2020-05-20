@@ -3,7 +3,7 @@ public enum OpenParkingError: Error {
     case decoding(description: String, underlyingError: Error?)
     case network(Error)
     case server(status: Int, response: String)
-    case other(Error?)
+    case other(String)
 }
 
 /// An error indicating that aggregating of data for a specific lot has failed.

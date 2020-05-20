@@ -3,7 +3,7 @@ import Foundation
 public struct Lot {
     public let dataAge: Date?
     public let name: String
-    public let coordinates: Coordinates
+    public let coordinates: Coordinates?
     public let city: String
     public let region: String?
     public let address: String?
@@ -19,7 +19,7 @@ public struct Lot {
 
     public init(dataAge: Date? = nil,
                 name: String,
-                coordinates: Coordinates,
+                coordinates: Coordinates?,
                 city: String,
                 region: String? = nil,
                 address: String? = nil,

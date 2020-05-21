@@ -15,7 +15,7 @@ public struct Warning {
 
     public static func flush() -> [Warning] {
         defer { warnings.removeAll() }
-        print(warnings.map(\.textRepr).joined(separator: "\n"))
+        print(warnings.map(\.textRepr).joined(separator: "\n"), terminator: "")
         return warnings
     }
 }

@@ -6,7 +6,7 @@ public enum OpenParkingError: Error {
     case other(String)
 }
 
-/// An error indicating that aggregating of data for a specific lot has failed.
+/// An error indicating that aggregating of data for a specific lot has failed. This is primary for use in `LotResult`.
 public enum LotError: Error {
     case missingMetadata(lot: String)
     case missingMetadataField(String, lot: String)

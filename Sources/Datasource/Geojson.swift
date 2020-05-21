@@ -5,6 +5,7 @@ public struct GeoJson: Decodable {
     public let type: String
     public let features: [Feature]
 
+    @dynamicMemberLookup
     public struct Feature: Decodable {
         public let type: String
         public let geometry: Geometry
@@ -34,6 +35,10 @@ public struct GeoJson: Decodable {
                 }
                 return URL(string: str)
             }
+        }
+
+        public subscript<T>(dynamicMember dynamicMember: String) -> T? {
+            self[dynamicMember]
         }
     }
 

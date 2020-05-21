@@ -15,11 +15,12 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Flight-School/AnyCodable", from: "0.2.3"),
         .package(url: "https://github.com/alexaubry/HTMLString", from: "5.0.0"),
+        .package(url: "https://github.com/sharplet/Regex", from: "2.1.0"),
     ],
     targets: [
         .target(
             name: "Datasource",
-            dependencies: ["AnyCodable", "HTMLString"]),
+            dependencies: ["AnyCodable", "HTMLString", "Regex"]),
         .target(
             name: "DatasourceValidation",
             dependencies: ["Datasource"]),

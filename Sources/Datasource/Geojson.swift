@@ -17,6 +17,10 @@ public struct GeoJson: Decodable {
 
         public let properties: [String: AnyDecodable]
 
+        public var name: String {
+            properties["name"]!.value as! String
+        }
+
         public var coordinates: Coordinates? {
             guard geometry.coordinates.count == 2 else { return nil }
             return Coordinates(lat: geometry.coordinates[0], lng: geometry.coordinates[1])
@@ -43,6 +47,7 @@ public struct GeoJson: Decodable {
     }
 
     public func lot(withName name: String) -> Feature? {
-        features.first { ($0.properties["name"]?.value as? String) == name }
+        assert(features.allSatisfy { $0.properties["name"] != nil }, "Every lot feature should have a name property.")
+        return features.first { $0.name == name }
     }
 }

@@ -32,17 +32,27 @@ public struct GeoJson: Decodable {
             }
         }
 
-        public subscript(_ key: String) -> URL? {
-            get {
-                guard let str = properties[key]?.value as? String else {
-                    return nil
-                }
-                return URL(string: str)
-            }
-        }
-
         public subscript<T>(dynamicMember dynamicMember: String) -> T? {
             self[dynamicMember]
+        }
+
+        /// Extract a value for a given key from lot metadata.
+        /// - Throws: `LotError.missingMetadataField` if no such key exists.
+        public func value<T>(for key: String) throws -> T {
+            guard let value: T = self[key] else {
+                throw LotError.missingMetadataField(key, lot: name)
+            }
+            return value
+        }
+
+        /// Extract a URL for a given key from lot metadata.
+        /// - Throws: `LotError.missingMetadataField` if no such key exists.
+        /// - Returns: `URL` or `nil` if the value was malformed.
+        public func urlValue(for key: String) throws -> URL? {
+            guard let value: String = self[key] else {
+                throw LotError.missingMetadataField(key, lot: name)
+            }
+            return URL(string: value)
         }
     }
 

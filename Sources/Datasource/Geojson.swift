@@ -17,7 +17,7 @@ public struct GeoJson: Decodable {
 
         public let properties: [String: AnyDecodable]
 
-        public var coordinate: Coordinates? {
+        public var coordinates: Coordinates? {
             guard geometry.coordinates.count == 2 else { return nil }
             return Coordinates(lat: geometry.coordinates[0], lng: geometry.coordinates[1])
         }

@@ -80,4 +80,6 @@ public func validate(lot: LotResult,
             }
         }
     }
+
+    _ = Warning.flush()
 }

@@ -105,7 +105,7 @@ final class BielefeldTests: XCTestCase {
 }
 ```
 
-That's it! `validate(datasource:)` is a function from the DatasourceValidation target that fetches live data and runs some validations to check if it makes sense.
+That's it! `validate(datasource:)` is a function from DatasourceValidation that fetches live data and runs some validations to check if it makes sense.
 
 You can run the tests via `$ swift test`, you'll see any warnings and errors it encounters.
 

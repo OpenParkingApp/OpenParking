@@ -77,7 +77,10 @@ extension Lot {
     }
 
     public enum LotType: String {
+        // basic public types
         case lot, structure, underground, street
+        // special
+        case bus, camper
     }
 
     public struct Pricing {

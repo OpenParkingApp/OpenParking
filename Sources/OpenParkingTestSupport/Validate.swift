@@ -1,5 +1,5 @@
 import XCTest
-import Datasource
+import OpenParking
 
 public func validate(datasource: Datasource,
                      ignoreExceededCapacity: Bool = false,

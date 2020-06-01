@@ -1,10 +1,10 @@
-# Datasource
+# OpenParking
 
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/OpenParkingApp/Datasource)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/OpenParkingApp/OpenParking)
 
 This package contains necessary types and useful functions for creating data sources for use with the OpenParking project, a service focussed on collecting data on available public parking spots and providing them and derived information as open-data wherever possible.
 
-Check out the [documentation](https://openparkingapp.github.io/Datasource/) for API specifics.
+Check out the [documentation](https://openparkingapp.github.io/OpenParking/) for API specifics.
 
 ## Creating a New Data Source
 
@@ -19,28 +19,28 @@ $ mkdir Bielefeld & cd Bielefeld
 $ swift package init
 ```
 
-Now open your newly created package manifest (`Package.swift`) and add Datasource to your list of dependencies, replacing `latest` with the latest release version listed above. 
+Now open your newly created package manifest (`Package.swift`) and add OpenParking to your list of dependencies, replacing `latest` with the latest release version listed above. 
 
 ```swift
 // ...
 dependencies: [
-    .package(url: "https://github.com/OpenParkingApp/Datasource.git", from: "latest"),
+    .package(url: "https://github.com/OpenParkingApp/OpenParking.git", from: "latest"),
 ]
 // ...
 ```
 
-Swift also requires that you add the relevant products to your targets as dependencies. Datasource contains two targets, Datasource and DatasourceValidation, the latter containing some helpers to validate your data in your test target. The targets section in our manifest now looks like the following. The dependency of DatasourceValidation on BielefeldTests unfortunately requires you to be a bit more verbose, since it differs from the package basename.
+Swift also requires that you add the relevant products to your targets as dependencies. OpenParking contains two targets, OpenParking and OpenParkingTestSupport, the latter containing some helpers to validate your data in your test target. The targets section in our manifest now looks like the following. The dependency of OpenParkingTestSupport on BielefeldTests unfortunately requires you to be a bit more verbose, since it differs from the package basename.
 
 ```swift
 // ...
 targets: [
     .target(
         name: "Bielefeld",
-        dependencies: ["Datasource"]),
+        dependencies: ["OpenParking"]),
     .testTarget(
         name: "BielefeldTests",
         dependencies: [
-            .product(name: "DatasourceValidation", package: "Datasource"),
+            .product(name: "OpenParkingTestSupport", package: "OpenParking"),
             "Bielefeld"
         ]),
 ]
@@ -51,11 +51,11 @@ targets: [
 
 Now let's head over into the main implementation in Sources/Bielefeld/Bielefeld.swift. This is where we'll define the actual data source and how it fetches its data.
 
-To start out we're going to import Datasource, create a new type and conform it to the `Datasource` protocol. Don't forget to mark the type as public so it's accessible from outside of this module.
+To start out we're going to import OpenParking, create a new type and conform it to the `Datasource` protocol. Don't forget to mark the type as public so it's accessible from outside of this module.
 
 ```swift
 import Foundation
-import Datasource
+import OpenParking
 
 public class Bielefeld: Datasource {
   
@@ -95,7 +95,7 @@ Before continuing with the actual implementation of `data()`, let's quickly just
 
 ```swift
 import XCTest
-import DatasourceValidation
+import OpenParkingTestSupport
 import Bielefeld
 
 final class BielefeldTests: XCTestCase {
@@ -105,13 +105,13 @@ final class BielefeldTests: XCTestCase {
 }
 ```
 
-That's it! `validate(datasource:)` is a function from DatasourceValidation that fetches live data and runs some validations to check if it makes sense.
+That's it! `validate(datasource:)` is a function from OpenParkingTestSupport that fetches live data and runs some validations to check if it makes sense.
 
 You can run the tests via `$ swift test`, you'll see any warnings and errors it encounters.
 
 #### Implementing the Data Source
 
-This is the interesting part and unfortunately also the one that differs for pretty much every data source. There are however some helpful utilities in the Datasource package to make this a little easier and maintainable.
+This is the interesting part and unfortunately also the one that differs for pretty much every data source. There are however some helpful utilities in the OpenParking package to make this a little easier and maintainable.
 
 For ease of use there's two synchronous networking functions,  `get(url:headers:)` and `post(url:headers:)` both of which return a tuple of type `(Data, HTTPURLResponse)`. 
 
@@ -125,7 +125,7 @@ One more thing to note here are the three available options of indicating issues
 - A `DataPoint` is not a direct collection of `Lot`s, but contains values of type `Result<Lot, LotError>`. Use the `LotError` to highlight if data for a specific lot is broken and can not be aggregated, possibly due to missing static metadata or something else.
 - If all else fails and data collection has failed entirely, make use of the throwing nature of `data()` and throw a fitting error.
 
-All of this and more should be listed in the project's [documentation](https://openparkingapp.github.io/Datasource/) as well.
+All of this and more should be listed in the project's [documentation](https://openparkingapp.github.io/OpenParking/) as well.
 
 #### Handling Static Data
 

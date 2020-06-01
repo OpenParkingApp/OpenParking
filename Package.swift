@@ -3,14 +3,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "Datasource",
+    name: "OpenParking",
     products: [
         .library(
-            name: "Datasource",
-            targets: ["Datasource"]),
+            name: "OpenParking",
+            targets: ["OpenParking"]),
         .library(
-            name: "DatasourceValidation",
-            targets: ["DatasourceValidation"]),
+            name: "OpenParkingTestSupport",
+            targets: ["OpenParkingTestSupport"]),
     ],
     dependencies: [
         .package(url: "https://github.com/Flight-School/AnyCodable", from: "0.2.3"),
@@ -19,14 +19,13 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Datasource",
+            name: "OpenParking",
             dependencies: ["AnyCodable", "HTMLString", "Regex"]),
         .target(
-            name: "DatasourceValidation",
-            dependencies: ["Datasource"]),
+            name: "OpenParkingTestSupport",
+            dependencies: ["OpenParking"]),
         .testTarget(
-            name: "DatasourceTests",
-            dependencies: ["Datasource"]),
+            name: "OpenParkingTests",
+            dependencies: ["OpenParking"]),
     ]
 )
- 

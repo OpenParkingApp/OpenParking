@@ -154,7 +154,16 @@ It will look something like this:
 }
 ```
 
-Bundling this with your package is as easy as dropping the file (typically named `geojson.json`) in our target's source directory, e.g.`Sources/Bielefeld` for this example. For the compiler to correctly pick up 
+Bundling this with your package is as easy as dropping the file (typically named `geojson.json`) in our target's source directory, e.g.`Sources/Bielefeld` for this example. To actually bundle our static data with the package we'll have to add the resource to our target in the package manifest.
+
+```swift
+.target(
+    name: "Bielefeld",
+    dependencies: ["OpenParking"],
+    resources: [
+        .process("geojson.json"),
+    ]),
+```
 
 We can then have the framework automatically decode it and access its data by doing the following inside our data source.
 

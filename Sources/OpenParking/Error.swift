@@ -3,6 +3,7 @@ public enum OpenParkingError: Error {
     case decoding(description: String, underlyingError: Error?)
     case network(Error)
     case server(status: Int, response: String)
+    case missingGeodata
     case other(String)
 }
 

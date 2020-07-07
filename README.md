@@ -129,4 +129,37 @@ All of this and more should be listed in the project's [documentation](https://o
 
 #### Handling Static Data
 
-*For the time being this is still a TODO as it will be improved with Swift 5.3's upcoming resource handling. In the meantime feel free to have a look at the `GeoJson` type and how it's currently being used in other data sources.*
+You'll likely want to bundle static data with your data source, including things like lot coordinates, addresses, types and anything else not being fetched together with the live data. If not present in the live data it also makes sense to include a count of total available spaces here. This kind of data is typically bundled as a [GeoJSON](https://geojson.org) file.
+
+It will look something like this:
+
+```js
+{
+  "type": "FeatureCollection",
+  "features": [{
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [8.533417, 52.025246]
+    },
+    "properties": {
+      "name": "Parkplatz Alte Post",
+      "address": "Friedrich-Ebert-Straße",
+      "type": "lot",
+      "total": 80
+    }
+  },
+  // ...
+  ]
+}
+```
+
+Bundling this with your package is as easy as dropping the file (typically named `geojson.json`) in our target's source directory, e.g.`Sources/Bielefeld` for this example. For the compiler to correctly pick up 
+
+We can then have the framework automatically decode it and access its data by doing the following inside our data source.
+
+```swift
+let geodata = try self.geodata(from: .module)
+```
+
+This returns a `GeoJson` object which we can use to retrieve our stored metadata through functions like `lot(withName:)`. See the project's [documentation](https://openparkingapp.github.io/OpenParking/) for more.

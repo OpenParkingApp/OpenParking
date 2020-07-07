@@ -29,3 +29,14 @@ public extension Datasource {
     var attributionURL: URL? { return nil }
     var license: String? { return nil }
 }
+
+public extension Datasource {
+    func geodata(from bundle: Bundle,
+                 withFilename filename: String = "geojson",
+                 andExtension extension: String = "json") throws -> GeoJson {
+        guard let geodataURL = bundle.url(forResource: filename, withExtension: `extension`) else {
+            throw OpenParkingError.missingGeodata
+        }
+        return try JSONDecoder().decode(GeoJson.self, from: Data(contentsOf: geodataURL))
+    }
+}

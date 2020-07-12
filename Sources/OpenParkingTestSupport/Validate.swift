@@ -4,7 +4,7 @@ import OpenParking
 public func validate(datasource: Datasource,
                      ignoreExceededCapacity: Bool = false,
                      ignoreDataAge: Bool = false,
-                     file: StaticString = #file,
+                     file: StaticString = #filePath,
                      line: UInt = #line) {
     do {
         let data = try datasource.data()
@@ -25,7 +25,7 @@ public func validate(datasource: Datasource,
 public func validate(lot: LotResult,
                      ignoreExceededCapacity: Bool = false,
                      ignoreDataAge: Bool = false,
-                     file: StaticString = #file,
+                     file: StaticString = #filePath,
                      line: UInt = #line) {
     switch lot {
     case .failure(let error):

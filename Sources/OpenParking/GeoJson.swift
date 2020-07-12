@@ -38,17 +38,17 @@ public extension Geometry {
         switch self {
         case .point(let point):
             return point.coordinates
-        case .multiPoint(let multiPoint):
+        case .multiPoint(_):
             fatalError("not yet implemented")
-        case .lineString(let lineString):
+        case .lineString(_):
             fatalError("not yet implemented")
-        case .multiLineString(let multiLineString):
+        case .multiLineString(_):
             fatalError("not yet implemented")
-        case .polygon(let polygon):
+        case .polygon(_):
             fatalError("not yet implemented")
-        case .multiPolygon(let multiPolygon):
+        case .multiPolygon(_):
             fatalError("not yet implemented")
-        case .geometryCollection(let geometryCollection):
+        case .geometryCollection(_):
             fatalError("not yet implemented")
         }
     }

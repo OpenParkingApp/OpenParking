@@ -49,6 +49,12 @@ public func validate(lot: LotResult,
         if let address = lot.address {
             XCTAssert(!address.isEmpty, "\(lot) address should not be empty if set", file: file, line: line)
         }
+        if let position = lot.position {
+            XCTAssertNotEqual(position.longitude, 0.0, "\(lot) position should not contain placeholder values")
+            XCTAssertNotEqual(position.longitude, 1.0, "\(lot) position should not contain placeholder values")
+            XCTAssertNotEqual(position.latitude, 0.0, "\(lot) position should not contain placeholder values")
+            XCTAssertNotEqual(position.latitude, 1.0, "\(lot) position should not contain placeholder values")
+        }
         if lot.geometry != nil {
             XCTAssertNotNil(lot.position, "\(lot) position should not be nil if geometry is set.")
         }

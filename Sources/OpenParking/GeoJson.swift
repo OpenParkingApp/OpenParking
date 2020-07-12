@@ -17,9 +17,9 @@ public extension Feature {
     }
 
     /// Convert a `String` value from a `Feature`'s properties into a `URL`.
-    /// - Parameter name: properties key
-    func url(for name: String) -> URL? {
-        properties?[name].flatMap { URL(string: $0) }
+    /// - Parameter key: properties key
+    func url(for key: String) -> URL? {
+        properties?[key].flatMap { URL(string: $0) }
     }
 }
 

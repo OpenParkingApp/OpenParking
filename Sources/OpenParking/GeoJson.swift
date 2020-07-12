@@ -16,6 +16,16 @@ public extension Feature {
         properties?.name
     }
 
+    /// Convenience accessor for `Feature.properties?.address`.
+    var address: String? {
+        properties?.address
+    }
+
+    /// Convenience accessor for `Feature.properties?.type`.
+    var type: Lot.LotType? {
+        properties?.type.flatMap { Lot.LotType(rawValue: $0) }
+    }
+
     /// Convert a `String` value from a `Feature`'s properties into a `URL`.
     /// - Parameter key: properties key
     func url(for key: String) -> URL? {

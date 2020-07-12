@@ -49,6 +49,9 @@ public func validate(lot: LotResult,
         if let address = lot.address {
             XCTAssert(!address.isEmpty, "\(lot) address should not be empty if set", file: file, line: line)
         }
+        if lot.geometry != nil {
+            XCTAssertNotNil(lot.position, "\(lot) position should not be nil if geometry is set.")
+        }
         if let pricing = lot.pricing {
             switch (pricing.url, pricing.description) {
             case (nil, nil):

@@ -1,4 +1,5 @@
 import Foundation
+import GeoJSON
 
 /// A place where cars can be left to do whatever cars do when no one's around.
 public struct Lot {
@@ -6,8 +7,11 @@ public struct Lot {
     public let dataAge: Date?
     /// Name of the lot.
     public let name: String
-    /// A physical location.
-    public let coordinates: Coordinates?
+    /// A physical location, ideally the center point of the lot. Is used to display a marker on maps.
+    public let position: Position?
+    /// The geometric shape of the lot, if known. Could be a `LineString` for a streetside lot, a `Polygon` for a typical lot or something more complex.
+    /// Please make sure to at least set the lot's `position`, not just the `geometry`.
+    public let geometry: Geometry?
     /// The city or town this lot resides in.
     public let city: String
     /// An optional region or district, if applicable.
@@ -35,7 +39,8 @@ public struct Lot {
 
     public init(dataAge: Date? = nil,
                 name: String,
-                coordinates: Coordinates?,
+                position: Position?,
+                geometry: Geometry?,
                 city: String,
                 region: String? = nil,
                 address: String? = nil,
@@ -50,7 +55,8 @@ public struct Lot {
                 additionalInformation: [String : Any]? = nil) {
         self.dataAge = dataAge
         self.name = name
-        self.coordinates = coordinates
+        self.position = position
+        self.geometry = geometry
         self.city = city
         self.region = region
         self.address = address

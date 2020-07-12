@@ -36,7 +36,7 @@ public extension Geometry {
             fatalError("not yet implemented")
         case .polygon(let polygon):
             fatalError("not yet implemented")
-        case .multiPolygon(let mulitPolygon):
+        case .multiPolygon(let multiPolygon):
             fatalError("not yet implemented")
         case .geometryCollection(let geometryCollection):
             fatalError("not yet implemented")
